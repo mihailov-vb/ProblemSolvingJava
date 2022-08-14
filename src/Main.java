@@ -15,5 +15,4 @@ public class Main {
 		for(int i : Array_Array.unique2(arr)) System.out.println(i);
 
 	}
-	// ПРИВЕТ !!! 
 }
