@@ -1,8 +1,9 @@
 public class Main {
 	public static void main(String[] args) {
-		String TEST = "dfjwfkjkaaafksdjfusfsufuasjdf";
+		String testString = "dfjwfkjkaaafksdjfusfsufuasjdf";
+		int testInt = 777;
 
-		System.out.println(String_Int.getCount1(TEST));
-		System.out.println(String_Int.getCount2(TEST));
+		System.out.println(String_Int.getCount1(testString));
+		System.out.println(String_Int.getCount2(testString));
 	}
 }
