@@ -6,7 +6,8 @@ public class Main {
 		int testInt = 777;
 		int[] arr = new int[] {2, 4, 5, 6, 6, 7, 8, 6};
 
-		System.out.println(Int_Long.fib3(6));
+		System.out.println(Long_Long.conjecture1(20));
+		System.out.println(Long_Long.conjecture2(20));
 
 	}
 }
