@@ -4,10 +4,8 @@ public class Main {
 	public static void main(String[] args) {
 		String testString = "dfjwfkjkaaafksdjfusfsufuasjdf";
 		int testInt = 777;
-		int[] arr = new int[] {2, 4, 5, 6, 6, 7, 8, 6};
+		int[] arr = new int[] {0, 1, 2, 3, 5, -5, 8};
 
-		System.out.println(Long_Long.conjecture1(20));
-		System.out.println(Long_Long.conjecture2(20));
-
+		System.out.println(String_String.longest1(testString, testString));
 	}
 }
