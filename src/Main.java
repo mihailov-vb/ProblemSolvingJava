@@ -6,6 +6,7 @@ public class Main {
 		int testInt = 777;
 		int[] arr = new int[] {0, 1, 2, 3, 5, -5, 8};
 
-		System.out.println(String_String.longest1(testString, testString));
+		System.out.println(Boolean_String.solution("abc", "bc"));
+		System.out.println(Boolean_String.solution("abc", "d"));
 	}
 }
