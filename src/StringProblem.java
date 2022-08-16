@@ -1,5 +1,8 @@
 import java.util.TreeSet;
 
+/**
+ * Класс для решения проблем связанных с типом данных String
+ */
 public class StringProblem {
 
 	/**

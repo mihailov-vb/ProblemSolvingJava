@@ -3,6 +3,9 @@ import java.util.LinkedHashSet;
 
 import static java.util.Arrays.stream;
 
+/**
+ * Класс для решения проблем связанных с Arrays
+ */
 public class ArrayProblem {
 
 	/**

@@ -1,5 +1,8 @@
 import java.util.stream.Stream;
 
+/**
+ * Класс для решения проблем связанных с Arithmetic
+ */
 public class ArithmeticProblem {
 
 	/**
