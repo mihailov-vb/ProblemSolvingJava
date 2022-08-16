@@ -1,7 +1,8 @@
 import java.util.TreeSet;
 
 /**
- * Класс для решения проблем связанных с типом данных String
+ * Класс с решением задач с сайта <a href="https://www.codewars.com/">CodeWars</a>.
+ * Проблемы связанные типом данных String.
  */
 public class StringProblem {
 

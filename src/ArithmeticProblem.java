@@ -1,7 +1,8 @@
 import java.util.stream.Stream;
 
 /**
- * Класс для решения проблем связанных с Arithmetic
+ * Класс с решением задач с сайта <a href="https://www.codewars.com/">CodeWars</a>.
+ * Проблемы связанные с Arithmetic.
  */
 public class ArithmeticProblem {
 

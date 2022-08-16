@@ -4,7 +4,8 @@ import java.util.LinkedHashSet;
 import static java.util.Arrays.stream;
 
 /**
- * Класс для решения проблем связанных с Arrays
+ * Класс с решением задач с сайта <a href="https://www.codewars.com/">CodeWars</a>.
+ * Проблемы связанные с Arrays.
  */
 public class ArrayProblem {
 
