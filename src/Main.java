@@ -1,5 +1,5 @@
 public class Main {
 	public static void main(String[] args) {
-		// пробуем сделать первый коммит с linux
+		System.out.println(StringProblem.getCount1("kjdoisfjweurhncxwioxrnhw"));
 	}
 }
