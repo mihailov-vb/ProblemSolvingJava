@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -209,6 +210,52 @@ public class StringProblem {
 	 */
 	public static int digits(long n) {
 		return String.valueOf(n).length();
+	}
+
+	/*public static String[] wave(String str) {
+
+		int countSpace = 0;
+		char[] arrChar2 = str.toCharArray();
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isSpaceChar(arrChar2[i])) {
+				countSpace++;
+			}
+		}
+
+		String[] arr = new String[str.length() - countSpace]; // создаем массив с количеством букв
+
+		for (int i = 0; i < str.length() - countSpace; i++) {
+			str.toLowerCase();
+			char[] arrChar = str.toCharArray(); // массив с символами строки
+			//if (Character.isSpaceChar(arrChar[i])) continue;
+			if (Character.isLetter(arrChar[i]) && !Character.isSpaceChar(arrChar[i])) { // если символ это буква но не пробел
+				arrChar[i] = Character.toUpperCase(arrChar[i]);
+				arr[i] = String.valueOf(arrChar);
+			}
+
+		}
+		return arr;
+	}*/
+
+	public static String[] wave(String str) {
+
+		int countSpace = 0;
+		char[] arrChar2 = str.toCharArray();
+		for (int i = 0; i < str.length(); i++) if (Character.isSpaceChar(arrChar2[i])) countSpace++;
+
+
+		String[] arr = new String[str.length() - countSpace]; // создаем массив с количеством букв
+
+		for (int i = 0; i < str.length() - countSpace; i++) {
+			str.toLowerCase(); // приводи строку к нижнему регистру
+			char[] arrChar = str.toCharArray(); // массив с символами строки
+			if (Character.isLetter(arrChar[i]) && !Character.isSpaceChar(arrChar[i])) { // если символ это буква но не пробел
+				arrChar[i] = Character.toUpperCase(arrChar[i]);
+				arr[i] = String.valueOf(arrChar);
+			}
+
+		}
+		return arr;
 	}
 
 }
