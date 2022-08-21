@@ -1,4 +1,7 @@
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * Класс с решением задач с сайта <a href="https://www.codewars.com/">CodeWars</a>.
@@ -146,5 +149,66 @@ public class StringProblem {
 		return all.replaceAll("[^" + s1 + s2 + "]", "");
 	}
 
+	/**
+	 * Problem_5_1 Получаем массив со словами, убираем приставку к словам "rotten".
+	 *
+	 * @param fruitBasket передаем массив со словами для редактирования
+	 * @return массив с поправленными словами
+	 */
+	public static String[] removeRotten(String[] fruitBasket) {
+		String[] arr = {};
+		if (fruitBasket == null) return arr;
+		for (int i = 0; i < fruitBasket.length; i++) {
+			fruitBasket[i] = fruitBasket[i].toLowerCase();
+			if (fruitBasket[i].startsWith("rotten")) fruitBasket[i] = fruitBasket[i].substring(6);
+		}
+		return fruitBasket;
+	}
+
+	/**
+	 * Problem_6_1 Преобразовывает строку (accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")
+	 *
+	 * @param s принимает строку
+	 * @return строку в новом форматировании
+	 */
+	public static String accum1(String s) {
+		String[] arr = s.split("");
+		for (int i = 1; i < s.length() + 1; i++) {
+			String tmp = arr[i - 1].toLowerCase();
+			for (int j = 1; j < i + 1; j++) {
+				if (j == 1) {
+					arr[i - 1] = arr[i - 1].toUpperCase();
+				} else {
+					arr[i - 1] = arr[i - 1] + tmp;
+				}
+			}
+		}
+		return String.join("-", arr);
+	}
+
+	/**
+	 * Problem_6_2 Преобразовывает строку (accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")
+	 *
+	 * @param ss принимает строку
+	 * @return строку в новом форматировании
+	 */
+	public static String accum2(String ss) {
+		return IntStream.range(0, ss.length())
+				.mapToObj(i -> Stream.generate(() -> ss.charAt(i)).limit(i + 1)
+						.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+						.toString())
+				.map(a -> a.substring(0, 1).toUpperCase() + a.substring(1).toLowerCase())
+				.collect(Collectors.joining("-"));
+	}
+
+	/**
+	 * Problem_7_1 Считает количество цифр в числе
+	 *
+	 * @param n передаваемое число типа long
+	 * @return количество цифр типа int
+	 */
+	public static int Digits(long n) {
+		return String.valueOf(n).length();
+	}
 
 }
