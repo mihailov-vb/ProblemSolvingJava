@@ -207,7 +207,7 @@ public class StringProblem {
 	 * @param n передаваемое число типа long
 	 * @return количество цифр типа int
 	 */
-	public static int Digits(long n) {
+	public static int digits(long n) {
 		return String.valueOf(n).length();
 	}
 
