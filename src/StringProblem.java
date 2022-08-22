@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import java.util.stream.IntStream;
 
 /**
  * Класс с решением задач с сайта <a href="https://www.codewars.com/">CodeWars</a>.
@@ -213,7 +214,8 @@ public class StringProblem {
 		return String.valueOf(n).length();
 	}
 
-	/** Problem 8_1 Выводит массив из слов с волной в регистре
+	/**
+	 * Problem 8_1 Выводит массив из слов с волной в регистре
 	 *
 	 * @param str слово из когторого сделать массив с волной
 	 * @return массив из слов с волной в регистре
@@ -231,7 +233,8 @@ public class StringProblem {
 		return list.toArray(new String[0]);
 	}
 
-	/** Problem 8_2 Выводит массив из слов с волной в регистре
+	/**
+	 * Problem 8_2 Выводит массив из слов с волной в регистре
 	 *
 	 * @param str слово из когторого сделать массив с волной
 	 * @return массив из слов с волной в регистре
@@ -239,12 +242,13 @@ public class StringProblem {
 	public static String[] wave2(String str) {
 		return IntStream
 				.range(0, str.length())
-				.mapToObj(x -> new StringBuilder(str).replace(x, x+1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
+				.mapToObj(x -> new StringBuilder(str).replace(x, x + 1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
 				.filter(x -> !x.equals(str))
 				.toArray(String[]::new);
 	}
 
-	/** Problem 9_1 Превращает сроку в массив из сочетаний букв по 2 шт
+	/**
+	 * Problem 9_1 Превращает сроку в массив из сочетаний букв по 2 шт
 	 *
 	 * @param s передаваемое слово
 	 * @return массив из пар букв
@@ -253,7 +257,7 @@ public class StringProblem {
 		ArrayList<String> list = new ArrayList<>();
 		if (s.equals("")) return list.toArray(new String[0]);
 		String[] arr = s.split("");
-		if (arr.length%2 == 0) {
+		if (arr.length % 2 == 0) {
 			for (int i = 0; i < arr.length; i += 2) list.add(arr[i] + arr[i + 1]);
 		} else {
 			for (int i = 0; i < arr.length - 1; i += 2) list.add(arr[i] + arr[i + 1]);
@@ -262,15 +266,54 @@ public class StringProblem {
 		return list.toArray(new String[0]);
 	}
 
-	/** Problem 9_2 Превращает сроку в массив из сочетаний букв по 2 шт
-	 *
-	 * @param s передаваемое слово
-	 * @return массив из пар букв
-	 */
+
 	public static String[] solution2(String s) {
-		s = (s.length() % 2 == 0)?s:s+"_";
+		s = (s.length() % 2 == 0) ? s : s + "_";
 		return s.split("(?<=\\G.{2})");
 	}
 
+	/**
+	 * Problem 10_1 Переводит строку в CamelCase
+	 *
+	 * @param s передаваемое слово
+	 * @return слово в стиле CamelCase
+	 */
+	static String toCamelCase1(String s){
+		char flag = '0';
+		char[] carr = s.toCharArray();
+
+		for (char c : carr) {
+			if (c == '-') flag = '-';
+			if (c == '_') flag = '_';
+		}
+		String[] arr = s.split(String.valueOf(flag));
+		for (int i = 1; i < arr.length; i++) {
+			arr[i] = arr[i].substring(0, 1).toUpperCase() + arr[i].substring(1);
+		}
+		return String.join("", arr);
+	}
+
+	/**
+	 * Problem 10_2 Переводит строку в CamelCase
+	 *
+	 * @param str передаваемое слово
+	 * @return слово в стиле CamelCase
+	 */
+	static String toCamelCase2(String str){
+		String[] words = str.split("[-_]");
+		return Arrays.stream(words, 1, words.length)
+				.map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
+				.reduce(words[0], String::concat);
+	}
+
+	/**
+	 * Problem 10_3 Переводит строку в CamelCase
+	 *
+	 * @param s передаваемое слово
+	 * @return слово в стиле CamelCase
+	 */
+	static String toCamelCase3(String s){
+		return Pattern.compile("[-|_](.)").matcher(s).replaceAll(r -> r.group(1).toUpperCase());
+	}
 
 }
