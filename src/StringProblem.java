@@ -267,7 +267,6 @@ public class StringProblem {
 		return list.toArray(new String[0]);
 	}
 
-
 	public static String[] solution2(String s) {
 		s = (s.length() % 2 == 0) ? s : s + "_";
 		return s.split("(?<=\\G.{2})");
