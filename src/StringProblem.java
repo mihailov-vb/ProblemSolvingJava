@@ -238,24 +238,26 @@ public class StringProblem {
 	}*/
 
 	public static String[] wave(String str) {
-
+		
+		/*
 		int countSpace = 0;
 		char[] arrChar2 = str.toCharArray();
 		for (int i = 0; i < str.length(); i++) if (Character.isSpaceChar(arrChar2[i])) countSpace++;
+		*/
+		
+		ArrayList<String> list = new ArrayList<>();
 
-
-		String[] arr = new String[str.length() - countSpace]; // создаем массив с количеством букв
-
-		for (int i = 0; i < str.length() - countSpace; i++) {
+		for (int i = 0; i < str.length(); i++) {
 			str.toLowerCase(); // приводи строку к нижнему регистру
 			char[] arrChar = str.toCharArray(); // массив с символами строки
 			if (Character.isLetter(arrChar[i]) && !Character.isSpaceChar(arrChar[i])) { // если символ это буква но не пробел
 				arrChar[i] = Character.toUpperCase(arrChar[i]);
-				arr[i] = String.valueOf(arrChar);
+				list.add(String.valueOf(arrChar));
 			}
-
+			
+		String[] arrS = list.toArray();
 		}
-		return arr;
+		return arrS;
 	}
 
 }
