@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -278,7 +279,7 @@ public class StringProblem {
 	 * @param s передаваемое слово
 	 * @return слово в стиле CamelCase
 	 */
-	static String toCamelCase1(String s){
+	static String toCamelCase1(String s) {
 		char flag = '0';
 		char[] carr = s.toCharArray();
 
@@ -299,7 +300,7 @@ public class StringProblem {
 	 * @param str передаваемое слово
 	 * @return слово в стиле CamelCase
 	 */
-	static String toCamelCase2(String str){
+	static String toCamelCase2(String str) {
 		String[] words = str.split("[-_]");
 		return Arrays.stream(words, 1, words.length)
 				.map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
@@ -312,8 +313,20 @@ public class StringProblem {
 	 * @param s передаваемое слово
 	 * @return слово в стиле CamelCase
 	 */
-	static String toCamelCase3(String s){
+	static String toCamelCase3(String s) {
 		return Pattern.compile("[-|_](.)").matcher(s).replaceAll(r -> r.group(1).toUpperCase());
 	}
 
+	/**
+	 * Problem 11_1 Находит максимальное и минимальное число в передаваемой строке
+	 *
+	 * @param numbers передаваемое число в строковом выражении типа "1 2 3"
+	 * @return возвращает максимальное и минимальное число в строковом выражении типа "3 1"
+	 */
+	public static String highAndLow(String numbers) {
+		String[] str = numbers.split(" ");
+		ArrayList<Integer>list = new ArrayList<>();
+		for (int i = 0; i < str.length; i++) list.add(Integer.parseInt(str[i]));
+		return Collections.max(list) + " " + Collections.min(list);
+	}
 }

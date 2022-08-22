@@ -1,7 +1,7 @@
 public class Main {
 	public static void main(String[] args) {
 
-		System.out.println(StringProblem.toCamelCase1("The-stealth-warrior"));
+		System.out.println(StringProblem.highAndLow("1 2 3"));
 
 	}
 }
