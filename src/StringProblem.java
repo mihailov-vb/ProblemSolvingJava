@@ -3,6 +3,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 /**
  * Класс с решением задач с сайта <a href="https://www.codewars.com/">CodeWars</a>.
@@ -217,7 +218,7 @@ public class StringProblem {
 	 * @param str
 	 * @return
 	 */
-	public static String[] wave(String str) {
+	public static String[] wave1(String str) {
 		ArrayList<String> list = new ArrayList<>();
 		for (int i = 0; i < str.length(); i++) {
 			str.toLowerCase();
@@ -228,6 +229,17 @@ public class StringProblem {
 			}
 		}
 		return list.toArray(new String[0]);
+	}
+
+
+	public class MexicanWave {
+		public static String[] wave2(String str) {
+			return IntStream
+					.range(0, str.length())
+					.mapToObj(x -> new StringBuilder(str).replace(x, x+1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
+					.filter(x -> !x.equals(str))
+					.toArray(String[]::new);
+		}
 	}
 
 }
