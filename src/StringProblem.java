@@ -213,10 +213,10 @@ public class StringProblem {
 		return String.valueOf(n).length();
 	}
 
-	/** Problem 8_1
+	/** Problem 8_1 Выводит массив из слов с волной в регистре
 	 *
-	 * @param str
-	 * @return
+	 * @param str слово из когторого сделать массив с волной
+	 * @return массив из слов с волной в регистре
 	 */
 	public static String[] wave1(String str) {
 		ArrayList<String> list = new ArrayList<>();
@@ -231,15 +231,46 @@ public class StringProblem {
 		return list.toArray(new String[0]);
 	}
 
-
-	public class MexicanWave {
-		public static String[] wave2(String str) {
-			return IntStream
-					.range(0, str.length())
-					.mapToObj(x -> new StringBuilder(str).replace(x, x+1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
-					.filter(x -> !x.equals(str))
-					.toArray(String[]::new);
-		}
+	/** Problem 8_2 Выводит массив из слов с волной в регистре
+	 *
+	 * @param str слово из когторого сделать массив с волной
+	 * @return массив из слов с волной в регистре
+	 */
+	public static String[] wave2(String str) {
+		return IntStream
+				.range(0, str.length())
+				.mapToObj(x -> new StringBuilder(str).replace(x, x+1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
+				.filter(x -> !x.equals(str))
+				.toArray(String[]::new);
 	}
+
+	/** Problem 9_1 Превращает сроку в массив из сочетаний букв по 2 шт
+	 *
+	 * @param s передаваемое слово
+	 * @return массив из пар букв
+	 */
+	public static String[] solution1(String s) {
+		ArrayList<String> list = new ArrayList<>();
+		if (s.equals("")) return list.toArray(new String[0]);
+		String[] arr = s.split("");
+		if (arr.length%2 == 0) {
+			for (int i = 0; i < arr.length; i += 2) list.add(arr[i] + arr[i + 1]);
+		} else {
+			for (int i = 0; i < arr.length - 1; i += 2) list.add(arr[i] + arr[i + 1]);
+			list.add(arr[arr.length - 1] + '_');
+		}
+		return list.toArray(new String[0]);
+	}
+
+	/** Problem 9_2 Превращает сроку в массив из сочетаний букв по 2 шт
+	 *
+	 * @param s передаваемое слово
+	 * @return массив из пар букв
+	 */
+	public static String[] solution2(String s) {
+		s = (s.length() % 2 == 0)?s:s+"_";
+		return s.split("(?<=\\G.{2})");
+	}
+
 
 }
