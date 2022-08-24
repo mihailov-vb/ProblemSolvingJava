@@ -87,7 +87,8 @@ public class StringProblem {
 	 * @return строка с замененными буквами
 	 */
 	public static String replace2(String str) {
-		return str.replace("a", "x")
+		return str
+				.replace("a", "x")
 				.replace("b", "a")
 				.replace("x", "b");
 	}
@@ -123,7 +124,9 @@ public class StringProblem {
 	 */
 	public static String longest2(String s1, String s2) {
 		String s = s1 + s2;
-		return s.chars().distinct()
+		return s
+				.chars()
+				.distinct()
 				.sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 				.toString();
 	}
