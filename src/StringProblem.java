@@ -229,7 +229,7 @@ public class StringProblem {
 		for (int i = 0; i < str.length(); i++) {
 			str.toLowerCase();
 			char[] arrChar = str.toCharArray();
-			if (Character.isLetter(arrChar[i]) && !Character.isSpaceChar(arrChar[i])) { // если символ это буква но не пробел
+			if (Character.isLetter(arrChar[i]) && !Character.isSpaceChar(arrChar[i])) {
 				arrChar[i] = Character.toUpperCase(arrChar[i]);
 				list.add(String.valueOf(arrChar));
 			}
@@ -246,7 +246,8 @@ public class StringProblem {
 	public static String[] wave2(String str) {
 		return IntStream
 				.range(0, str.length())
-				.mapToObj(x -> new StringBuilder(str).replace(x, x + 1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
+				.mapToObj(x -> new StringBuilder(str)
+						.replace(x, x + 1, String.valueOf(str.charAt(x)).toUpperCase()).toString())
 				.filter(x -> !x.equals(str))
 				.toArray(String[]::new);
 	}
@@ -332,6 +333,4 @@ public class StringProblem {
 		return Collections.max(list) + " " + Collections.min(list);
 	}
 
-	//  test
-	// тест 2
 }
