@@ -333,4 +333,5 @@ public class StringProblem {
 	}
 
 	//  test
+	// тест 2
 }
