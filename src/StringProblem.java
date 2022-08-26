@@ -328,7 +328,7 @@ public class StringProblem {
 	 */
 	public static String highAndLow(String numbers) {
 		String[] str = numbers.split(" ");
-		ArrayList<Integer>list = new ArrayList<>();
+		ArrayList<Integer> list = new ArrayList<>();
 		for (int i = 0; i < str.length; i++) list.add(Integer.parseInt(str[i]));
 		return Collections.max(list) + " " + Collections.min(list);
 	}
