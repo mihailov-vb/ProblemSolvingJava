@@ -16,5 +16,5 @@ public class Main {
 		System.out.println(StringProblem.highAndLow(str));
 	}
 
-	// test 4
+	// test 5
 }
