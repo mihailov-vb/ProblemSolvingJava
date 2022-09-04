@@ -14,6 +14,7 @@ public class Main {
 		String str = "1 2 3 4 5 6 7 8";
 
 		System.out.println(StringProblem.highAndLow(str));
-
 	}
+
+	// test 2
 }
